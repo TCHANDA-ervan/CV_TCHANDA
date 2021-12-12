@@ -7,7 +7,6 @@ $header =[
   $filiere=$header [1];
   
   $information = [
-  
     [ 'naissance' => 'Née le 31 janvier 2001'],
     [ 'origine' => 'Originaire de lOuest cameroun'],
     [ 'matrimoniale' => 'Célibataire,0 enfant - Santé RAS'],
@@ -73,26 +72,42 @@ $header =[
 
  //EXPERIENCE 
 
- $experience = ['Expérience Professionnelle'];
-$experience[0];
-$expertise = ['Expertise en entreprise'];
-$expertise[0];
+ 
 
 $Gtitre = [
+    ['experience' => 'Expérience Professionnelle'],
     ['titre1' => 'Chef des projets technologiques -'],
-    ['titre2' => '>Fondateur & DT -'],
+    ['titre2' => 'Fondateur & DT -'],
     ['titre3' => 'Enseignant -'],
     ['titre4' => 'Dévéloppeur en chef -'],
     ['titre5' => 'Responsable commercial -'],
     ['titre6' => 'stage realisé -'],
 
 ];
-$titre1 = $Gtitre[0];
-$titre2 = $Gtitre[1];
-$titre3 = $Gtitre[2];
-$titre4 = $Gtitre[3];
-$titre5 = $Gtitre[4];
-$titre6 = $Gtitre[5];
+$experience = $Gtitre[0];
+$titre1 = $Gtitre[1];
+$titre2 = $Gtitre[2];
+$titre3 = $Gtitre[3];
+$titre4 = $Gtitre[4];
+$titre5 = $Gtitre[5];
+$titre6 = $Gtitre[6];
+
+
+$entreprises = [
+  ['entreprise1' => '@Ets.M DE M'],
+  ['entreprise2' => '@Tartup ChickDev'],
+  ['entreprise3' => '@Institut Universitaire de la cote'],
+  ['entreprise4' => '@Kayroual group'],
+  ['entreprise5' => '@BAO Sarl'],
+  ['entreprise6' => '@Creative Sarl'],
+
+];
+$entreprise1 = $entreprises[0];
+$entreprise2 = $entreprises[1];
+$entreprise3 = $entreprises[2];
+$entreprise4 = $entreprises[3];
+$entreprise5 = $entreprises[4];
+$entreprise6 = $entreprises[5];
 
 $Glien = [
     ['lien1' => 'De juillet 2019 à ce jour - http://mdem.cm'],
@@ -136,20 +151,32 @@ $langue = $langue[0];
 
 
 //cursus 
-$cursus_academique = ['cursus' =>'cursus academique'];
-$cursus = $cursus_academique[0];
 
 $classe = [
+    ['cursus' =>'cursus academique'],
     ['niveau1' => ' prepa 2 -'],
     ['niveau2' => 'prepa 1 -'],
     ['niveau3' => 'baccalaureat -'],
     ['niveau4' => 'probatoire -'],
 
 ];
-$niveau1 = $classe[0];
-$niveau2 = $classe[1];
-$niveau3 = $classe[2];
-$niveau4 = $classe[3];
+$cursus = $classe[0];
+$niveau1 = $classe[1];
+$niveau2 = $classe[2];
+$niveau3 = $classe[3];
+$niveau4 = $classe[4];
+
+$ecoless = [
+  ['etablissement1' => ' @institut universitaire la côte'],
+  ['etablissement2' => '@institut universitaire la côte'],
+  ['etablissement3' => '@College bilingue orchidee'],
+  ['etablissement4' => '@College bilingue orchidee'],
+
+];
+$etablissement1 = $ecoless[0];
+$etablissement2 = $ecoless[1];
+$etablissement3 = $ecoless[2];
+$etablissement4 = $ecoless[3];
  
 ?>
 <!DOCTYPE html> 
@@ -165,6 +192,111 @@ $niveau4 = $classe[3];
      <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min..css">
      <link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme..css">
      <link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme.min..css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style type="text/css">
+  i {
+  color: #fff;
+  font-size: 20px !important;
+  /* 24px preferred icon size */
+}
+
+a {
+  text-decoration: none;
+}
+
+#btn {
+  display: none;
+}
+
+.button-parent {
+  display: flex;
+}
+
+.button {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 20px;
+  margin-left: 330px;
+  margin-top: 0%;
+  cursor:pointer;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+
+/* link and link-parent */
+
+.link-parent {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+}
+
+.link-item {
+margin: -150px;
+  background-color: black;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+  transform: translatey(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: move-up;
+  animation-duration: .3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+
+/* control click */
+
+#btn:checked~.link-parent {
+  display: flex;
+  flex-direction:column;
+}
+
+
+/* animation */
+
+@keyframes move-up {
+  0% {
+    transform: translateY(5px);
+  }
+  33% {
+    transform: translateY(0px);
+  }
+  66% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+#link-one {
+  animation-delay: .1s;
+  margin-left:-100px;
+  margin-top: 0px;
+}
+
+#link-two {
+  animation-delay: .2s;
+  margin-left:-100px;
+  margin-top: 50px;
+}
+
+
+</style>
     
 </head>
 <body>

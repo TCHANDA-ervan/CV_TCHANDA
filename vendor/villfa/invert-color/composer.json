@@ -1,0 +1,81 @@
+{
+    "name": "villfa/invert-color",
+    "type": "library",
+    "description": "InvertColor - invert hex color code",
+    "keywords": [
+        "color",
+        "colour",
+        "invert",
+        "inverse",
+        "reverse",
+        "opposite"
+    ],
+    "homepage": "https://github.com/villfa/php-invert-color",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "Fabien VILLEPINTE",
+            "email": "fabien.villepinte@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "replace": {
+        "symfony/polyfill-php70": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+        "vimeo/psalm": "^3.4"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "InvertColor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "InvertColor\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "lint": "parallel-lint -j 4 src/ tests/ scripts/",
+        "phpcs": "php-cs-fixer --ansi fix --rules=@PSR2 -v --dry-run --stop-on-violation --using-cache=no .",
+        "phpstan": "phpstan analyze --ansi src tests --level=max",
+        "phpunit": "phpunit --colors=always --testdox --testsuite InvertColor",
+        "psalm": "psalm --long-progress --stats",
+        "test": [
+            "@composer validate --no-interaction --strict",
+            "@lint",
+            "@phpunit",
+            "@phpstan",
+            "@psalm",
+            "@phpcs"
+        ],
+        "ut": [
+            "@phpunit"
+        ]
+    },
+    "scripts-descriptions": {
+        "lint": "Runs a PHP linter to check the syntax",
+        "phpcs": "Runs coding style test suite",
+        "phpstan": "Runs complete codebase static analysis using PHPStan",
+        "phpunit": "Runs unit tests",
+        "psalm": "Runs complete codebase static analysis using Psalm",
+        "test": "Validates and tests the whole library.",
+        "ut": "Runs unit tests only."
+    }
+}
